@@ -1,4 +1,13 @@
-<h1>Sign Up</h1>
+
+
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Login</h3>
+                    </div>
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
@@ -13,15 +22,22 @@
   <% end %>
 <p>
 	<%= f.label :user_name %><br>
-	<%= f.text_field :user_name %>
+	<%= f.text_field :user_name, autofocus: true, :class => "form-control" %>
 </p>
 <p>
 	<%= f.label :password %><br>
-	<%= f.password_field :password %>
+	<%= f.password_field :password, autofocus: true, :class => "form-control" %>
 </p>
 <p>
 	<%= f.label :password_confirmation %><br>
-	<%= f.password_field :password_confirmation %>
+	<%= f.password_field :password_confirmation, autofocus: true, :class => "form-control" %>
 </p>
-<p class="button"><%= f.submit %></p>
+<p class="button"><%= f.submit "SIgnUp", :class => "btn btn-success btn-block" %></p>
 <% end %>
+           </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+ 

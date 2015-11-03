@@ -18,6 +18,15 @@ class User < ActiveRecord::Base
        end
 	end
 
+	def self.authenticate(user_name,password)
+		user = find_by_user_name(user_name)
+		if user && user.password_hash == Digest::MD5.hexdigest(password + user.password_salt)
+			user
+		else
+			nil
+		end
+	end
+
 	def encrypt_password
 		if password.present?
 			self.password_salt = SecureRandom.hex

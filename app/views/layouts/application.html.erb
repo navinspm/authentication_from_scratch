@@ -7,7 +7,28 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+ 
 
+   <nav class="navbar navbar-fixed-top navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="<%= root_path %>" class="navbar-brand">SignUp App</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapsable">
+      <ul class="nav navbar-nav navbar-right" align="right">
+      <li class="notice"><%= notice %></li>
+      <li class="alert"><%= alert %></li> 
+       <% if current_user %>
+       <li>Logged in as <%= current_user.user_name %></li>
+       <li><a href="<%= log_out_path%>">LogOut</a></li>
+   <% else %>
+   <li><a href="<%= sign_up_path  %>">SignUp</a></li>  
+   <li><a href="<%= log_in_path%>">Login</a></li> 
+   <% end %>  
+    </div>
+  </div>
+</nav>
+<br><br><br>
 <%= yield %>
 
 </body>
